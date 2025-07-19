@@ -4,5 +4,5 @@
 
 
 <script setup lang="ts">
-import bannerImg from '@/assets/banner-img-faq.png';
+import bannerImg from '@/assets/images/banner-img-faq.png';
 </script>

@@ -7,23 +7,26 @@
     rel="noopener noreferrer"
     :class="['btn', mode]"
   >
-    <slot />
+    <slot></slot>
   </component>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 
-interface Props {
+const props = defineProps<{
   to?: string
   external?: boolean
   mode?: string
-}
+}>()
 
-const props = defineProps<Props>()
+const isExternalLink = computed(() =>
+  props.external || props.to?.startsWith('http')
+)
 
-const isExternalLink = computed(() => props.external || props.to?.startsWith('http'))
-const isRouterLink = computed(() => props.to && !isExternalLink.value)
+const isRouterLink = computed(() =>
+  props.to && !isExternalLink.value
+)
 
 const componentType = computed(() => {
   if (isExternalLink.value) return 'a'

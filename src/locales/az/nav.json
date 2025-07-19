@@ -1,0 +1,10 @@
+{
+    "navbar":{ 
+        "home": "Ana səhifə",
+        "help": "Kömək",
+        "faq": "Tez-tez verilən suallar",
+        "blog": "Bloq",
+        "subscription": "Abunəlik",
+        "login": "Daxil ol"
+    }
+} 

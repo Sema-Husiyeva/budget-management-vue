@@ -1,0 +1,10 @@
+{
+    "navbar":{ 
+        "home": "Home",
+        "help": "Help",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "subscription": "Subscription",
+        "login": "Login"
+    }
+}    
