@@ -49,6 +49,7 @@
         <RouterLink class="footer-section-navbar-link" to="/subscription">Subscription</RouterLink>
       </div>
     </div>
+    <p class='footer-section-copyright'>© 2025 «Budget» ASC. All Rights Reserved.</p>
   </footer>
 </template>
 
@@ -141,7 +142,7 @@ function openLink(url: string) {
     
                 &-btn {
                     padding: 12px 30px;
-                    border-radius: 0;
+                    border-radius: 0!important;
                 }
 
                 &-error {
@@ -149,9 +150,8 @@ function openLink(url: string) {
                   margin-top: 10px
                 }
             }
-
-           
         }
+
         &-social-media {
             @include flex(space-around, center);
         }
@@ -165,6 +165,13 @@ function openLink(url: string) {
             color: $third-font-color;
             font-size: 1.1rem;
         }
+    }
+    &-copyright {
+          font-size: 18px;
+          margin-left: 0;
+          margin-top: 30px;
+          text-align: center;
+          color: $third-font-color;;
     }
 }
 </style>
