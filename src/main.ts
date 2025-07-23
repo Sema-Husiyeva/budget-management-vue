@@ -6,6 +6,7 @@ import BaseButton from './components/UI/BaseButton.vue';
 import TheBanner from './components/common/TheBanner.vue';
 import BaseDialog from './components/UI/BaseDialog.vue';
 import i18n from "./i18n";
+import pinia from './store';
 
 
 const app = createApp(App);
@@ -13,6 +14,7 @@ const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(i18n);
+app.use(pinia);
 
 
 app.component('base-button', BaseButton);

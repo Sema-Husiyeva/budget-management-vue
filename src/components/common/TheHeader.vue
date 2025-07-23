@@ -18,9 +18,36 @@
       <router-link to="/subscription" class="header-section-navbar-link">{{
         t("navbar.subscription")
       }}</router-link>
-      <base-button to="/login" mode="btn-blue">{{
-        t("navbar.login")
-      }}</base-button>
+      <div>
+    <base-button
+      v-if="!authStore.loginSuccess"
+      to="/login"
+      mode="btn-blue"
+    >
+    {{ t("navbar.login") }}
+    </base-button>
+    <div v-else class="header-section-navbar-account-dropdown">
+      <base-button
+        @click="toggleMenu"
+        mode="btn-white"
+      >
+        {{ t("navbar.my account") }}
+      </base-button>
+      <div v-if="showMenu" class="header-section-navbar-account-dropdown-menu">
+        <p><span>Email:</span> {{ authStore.user?.email }}</p>
+        <p>
+          <span>Plan:</span>
+          {{
+            authStore.subscriptionPlan
+              ? `${authStore.subscriptionPlan.planType} - ${authStore.subscriptionPlan.amount}`
+              : 'No active plan'
+          }}
+        </p>
+        <base-button to="/subscription" mode="btn-white">Change Plan</base-button>
+        <base-button @click="authStore.logout()" mode="btn-blue">Logout</base-button>
+       </div>
+      </div>
+    </div>
       <select class="header-section-navbar-lang" v-model="selectedLang" @change="changeLanguage">
         <option value="en">EN</option>
         <option value="az">AZ</option>
@@ -32,8 +59,14 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/store/features/auth'
+
 const { locale, t } = useI18n()
 const selectedLang = ref(locale.value)
+const authStore = useAuthStore()
+const router = useRouter()
+const showMenu = ref(false)
 
 watch(selectedLang, (newLang) =>{ 
   locale.value = newLang 
@@ -43,6 +76,10 @@ watch(selectedLang, (newLang) =>{
 function changeLanguage() { 
   locale.value = selectedLang.value
   document.documentElement.lang = selectedLang.value
+}
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value
 }
 </script>
 
@@ -90,6 +127,33 @@ function changeLanguage() {
       font-size: 1rem;
       cursor: pointer
     }
+     &-account-dropdown{
+            position: relative;
+        
+            &-menu {
+                position: absolute;
+                right: -5%;
+                top: 120%;
+                background-color: $white-color;
+                border: 1px solid #ddd;
+                padding: 30px;
+                width: 240px;
+                border-radius: 6px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                & p {
+                    font-size: 1.1rem;
+                    color: $first-font-color;
+                    & span {
+                        color: $main-color;
+                        font-weight: 700;
+                    }
+                }
+            }    
+        }
   }
 }
 </style>

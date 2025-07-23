@@ -8,7 +8,11 @@ import HelpPage from '@/pages/Help/HelpPage.vue';
 import FaqPage from '@/pages/FAQ/FaqPage.vue';
 import BlogPage from '@/pages/Blog/BlogPage.vue';
 import SubscriptionPage from '@/pages/Subscription/SubscriptionPage.vue';
+import BlogDetail from '@/pages/blogDetail/blogDetail.vue';
 import LoginPage from '@/pages/Login/LoginPage.vue';
+import SignupPage from '@/pages/Signup/SignupPage.vue';
+import PaymentPage from '@/pages/Payment/PaymentPage.vue';
+
 
 const routes = [
   {
@@ -19,7 +23,14 @@ const routes = [
       { path: 'help', component: HelpPage },
       { path: 'faq', component: FaqPage },
       { path: 'blog', component: BlogPage },
+      {
+        path: 'blog/:id',
+        name: 'BlogDetail',
+        component: BlogDetail,
+        props: true,
+      },
       { path: 'subscription', component: SubscriptionPage },
+      { path: 'payment', component: PaymentPage },
     ],
   },
   {
@@ -27,6 +38,7 @@ const routes = [
     component: AuthLayout,
     children: [
       { path: 'login', component: LoginPage },
+      { path: 'signup', component: SignupPage },
     ],
   },
 ];

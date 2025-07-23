@@ -129,7 +129,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 
 
 const items = [

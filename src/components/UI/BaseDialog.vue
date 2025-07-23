@@ -9,7 +9,7 @@
         </slot>
       </header>
       <section>
-        <slot></slot>
+        <slot class="desc"></slot>
       </section>
       <menu v-if="!fixed">
         <slot name="actions">
@@ -77,6 +77,11 @@ header {
 
 header h2 {
   margin: 0;
+  padding: 20px 0;
+}
+
+.desc {
+  padding: 20px 0;
 }
 
 section {
