@@ -12,6 +12,10 @@ import BlogDetail from '@/pages/blogDetail/blogDetail.vue';
 import LoginPage from '@/pages/Login/LoginPage.vue';
 import SignupPage from '@/pages/Signup/SignupPage.vue';
 import PaymentPage from '@/pages/Payment/PaymentPage.vue';
+import SuccessfulPayment from '@/pages/successfulPayment/SuccessfulPayment.vue';
+import PrivacyPage from '@/pages/Privacy/PrivacyPage.vue';
+import TermsPage from '@/pages/Terms/TermsPage.vue';
+import ContactPage from '@/pages/Contact/ContactPage.vue';
 
 
 const routes = [
@@ -31,6 +35,10 @@ const routes = [
       },
       { path: 'subscription', component: SubscriptionPage },
       { path: 'payment', component: PaymentPage },
+      { path: 'successfulPayment', component: SuccessfulPayment },
+      { path: 'privacy', component: PrivacyPage },
+      { path: 'terms', component: TermsPage },
+      { path: 'contact', component: ContactPage },
     ],
   },
   {

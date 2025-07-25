@@ -7,5 +7,42 @@
         "subscription": "Subscription",
         "login": "Login",
         "my account": "My Account"
+    },
+    "banner": {
+        "title": "Slogan",
+        "description": "Take control of your finances with ease. Track your spending, set smart goals, and save more every day. Budgeting has never been this simple."
+    },
+    "main": {
+        "how to start": "How to start",
+        "step 1": "Sign up with your email or phone number.",
+        "step 2": "Create initial account to record his transactions.",
+        "step 3": "You can add transactions and track your account.",
+        "slider title": "What the app does",
+        "slider description 1": "Simple interface/app that makes it easy to control your cash flows",
+        "slider description 2": "Quick transaction entry - Add all transactions with one click",
+        "slider description 3": "Creation of templates to facilitate and speed up the entry of transactions",
+        "slider description 4": "Ability to control income and expenses of different accounts from one center (or not)",
+        "plan title": "Subscription Plans",
+        "plan description": "Choose the best plan for your business.",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "basic plan": "Basic Plan",
+        "premium plan": "Premium Plan",
+        "basic desc 1": "Access to basic features",
+        "basic desc 2": "Monthly budget tracking",
+        "basic desc 3": "Cancel anytime",
+        "premium desc 1": "Advanced analytics and insights",
+        "premium desc 2": "Team collaboration tools",
+        "premium desc 3": "Customizable budgeting tools",
+        "get started": "Get Started"
+    },
+    "footer": {
+        "privacy policy": "Privacy Policy",
+        "terms of service": "Terms of Service",
+        "contact us": "Contact Us",
+        "newsletter": "Newsletter",
+        "subscribe": "Subscribe",
+        "subscribe success": "Subscription successful!",
+        "copyright": "© 2025 «Budget» ASC. All rights reserved."
     }
 }    

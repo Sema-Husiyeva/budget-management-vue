@@ -41,8 +41,8 @@
           class="subscription-banner-section-card-btn"
           mode="btn-white"
           @click="handleNavigate(
-           isMonthly ? '$3' : '$30',
-           isMonthly ? 'Basic (Monthly)' : 'Basic (Yearly)'
+           isMonthly ? '$25' : '$250',
+           isMonthly ? 'Premium (Monthly)' : 'Premium (Yearly)'
           )"
         >
         Get Started
@@ -91,8 +91,8 @@ const handleNavigate = (amount: string, planType: string) => {
   if (!authStore.loginSuccess) {
     router.push({
       path: '/login',
-      state: {
-        fromSubscription: true,
+      query: {
+        fromSubscription: 'true',
         amount,
         planType,
       }
@@ -100,7 +100,7 @@ const handleNavigate = (amount: string, planType: string) => {
   } else {
     router.push({
       path: '/payment',
-      state: {
+      query: {
         amount,
         planType,
       }

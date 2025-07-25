@@ -4,14 +4,14 @@
       <div class="footer-section-info">
         <h1 class="footer-section-info-logo">Monux</h1>
         <div class="footer-section-info-list">
-          <RouterLink class="footer-section-info-list-item" to="/privacy">Privacy Policy</RouterLink>
-          <RouterLink class="footer-section-info-list-item" to="/terms">Terms and Conditions</RouterLink>
-          <RouterLink class="footer-section-info-list-item" to="/contact">Contact Us</RouterLink>
+          <RouterLink class="footer-section-info-list-item" to="/privacy">{{ t('footer.privacy policy') }}</RouterLink>
+          <RouterLink class="footer-section-info-list-item" to="/terms">{{ t('footer.terms of service') }}</RouterLink>
+          <RouterLink class="footer-section-info-list-item" to="/contact">{{ t('footer.contact us') }}</RouterLink>
         </div>
       </div>
 
       <div class="footer-section-contact">
-        <p class="footer-section-contact-title">Newsletter</p>
+        <p class="footer-section-contact-title">{{ t('footer.newsletter') }}</p>
         <div class="footer-section-contact-email">
           <div class="footer-section-contact-email-input">
             <input type="email" v-model="email" placeholder="E-mail" />
@@ -21,13 +21,13 @@
               mode="btn-blue"
               @click="handleSubscribe"
             >
-              Subscribe
+              {{ t('footer.subscribe') }}
             </base-button>
           </div>
           <p v-if="errorMessage" class="footer-section-contact-email-input-error">{{ errorMessage }}</p>
           <base-dialog v-model="showDialog" title="Subscribed Successfully">
             <template #default>
-               You have been successfully subscribed to our newsletter.
+                {{ t('footer.subscribe success') }}
             </template>
           </base-dialog>
         </div>
@@ -42,20 +42,23 @@
       </div>
 
       <div class="footer-section-navbar">
-        <RouterLink class="footer-section-navbar-link" to="/" exact>Home</RouterLink>
-        <RouterLink class="footer-section-navbar-link" to="/help">Help</RouterLink>
-        <RouterLink class="footer-section-navbar-link" to="/faq">FAQ</RouterLink>
-        <RouterLink class="footer-section-navbar-link" to="/blog">Blog</RouterLink>
-        <RouterLink class="footer-section-navbar-link" to="/subscription">Subscription</RouterLink>
+        <RouterLink class="footer-section-navbar-link" to="/" exact> {{ t('navbar.home') }}</RouterLink>
+        <RouterLink class="footer-section-navbar-link" to="/help">{{ t('navbar.help') }}</RouterLink>
+        <RouterLink class="footer-section-navbar-link" to="/faq">{{ t('navbar.faq') }}</RouterLink>
+        <RouterLink class="footer-section-navbar-link" to="/blog">{{ t('navbar.blog') }}</RouterLink>
+        <RouterLink class="footer-section-navbar-link" to="/subscription">{{ t('navbar.subscription') }}</RouterLink>
       </div>
     </div>
-    <p class='footer-section-copyright'>© 2025 «Budget» ASC. All Rights Reserved.</p>
+    <p class='footer-section-copyright'>{{ t('footer.copyright') }}</p>
   </footer>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n();
 
 import facebookIcon from '@/assets/icons/facebook-icon.svg'
 import instagramIcon from '@/assets/icons/instagram-icon.svg'

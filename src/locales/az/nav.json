@@ -7,5 +7,42 @@
         "subscription": "Abunəlik",
         "login": "Daxil ol",
         "my account": "Mənim hesabım"
+    },
+    "banner": {
+        "title": "Şüar",
+        "description": "Maliyyənizə asanlıqla nəzarət edin. Xərclərinizi izləyin, ağıllı hədəflər təyin edin və hər gün daha çox qənaət edin. Büdcə tərtib etmək heç vaxt bu qədər sadə olmamışdı."
+    },
+    "main": {
+        "how to start": "Necə başlamaq lazımdır?",
+        "step 1": "E-poçt və ya telefon nömrəsi ilə qeydiyyatdan keçin.",
+        "step 2": "Əməliyyatlarını qeyd etmək üçün ilkin hesabını yaradın.",
+        "step 3": "Siz əməliyyatlar əlavə edə və hesabınızı izləyə bilərsiniz.",
+        "slider title": "Appin gördüyü işlər",
+        "slider description 1": "Pul axınlarınıza nəzarəti asanlaşdıran sadə interfeys/tətbiq",
+        "slider description 2": "Tranzaksiyaları sürətli daxil etmə - Bütün əməliyyatları bir kliklə əlavə et",
+        "slider description 3": "Əməliyyatların daxil edilməsini asanlaşdırmaq və sürətləndirmək üçün şablonların yaradılması",
+        "slider description 4": "Fərqli hesablarının gəlir və xərclərinə bir mərkəzdən nəzarət emək imkanı (və ya et)",
+        "plan title": "Abunəlik planlar",
+        "plan description": "Biznesiniz üçün ən yaxşı planı seçin.",
+        "monthly": "Aylıq",
+        "yearly": "İllik",
+        "basic plan": "Əsas Plan",
+        "premium plan": "Premium Plan",
+        "basic desc 1": "Əsas xüsusiyyətlərə giriş",
+        "basic desc 2": "Aylıq büdcə izlənməsi",
+        "basic desc 3": "İstənilən vaxt ləğv edin",
+        "premium desc 1": "Qabaqcıl analitika və anlayışlar",
+        "premium desc 2": "Komanda əməkdaşlıq alətləri",
+        "premium desc 3": "Fərdiləşdirilə bilən büdcə alətləri",
+        "get started": "Başlamaq"
+    },
+    "footer": {
+        "privacy policy": "Məxfilik siyasəti",
+        "terms of service": "Xidmət şərtləri",
+        "contact us": "Bizimlə əlaqə",
+        "newsletter": "Xəbər bülleteni",
+        "subscribe": "Abunə olun",
+        "subscribe success": "Abunəlik uğurla tamamlandı!",
+        "copyright": "© 2025 «Budget» ASC. Bütün hüquqlar qorunur."
     }
 } 

@@ -1,14 +1,14 @@
 <template>
-    <the-banner :bannerImg="bannerImg" bannerTitle="Slogan" bannerDescription="Take control of your finances with ease. Track your spending, set smart goals, and save more every day. Budgeting has never been this simple."></the-banner>
+    <the-banner :bannerImg="bannerImg" :bannerTitle="t('banner.title')" :bannerDescription="t('banner.description')"></the-banner>
     <div class="home-section-start">
-    <h1 class="home-section-start-title">How to start</h1>
+    <h1 class="home-section-start-title">{{ t('main.how to start') }}</h1>
 
     <div class="home-section-start-icons">
       <div class="home-section-start-icons-info">
         <div class="home-section-start-icons-info-activity">
           <img :src="startActivityIcon" alt="start-activity-icon" />
         </div>
-        <p>Register with email or phone number.</p>
+        <p>{{ t('main.step 1') }}</p>
       </div>
 
       <img class="home-section-start-icons-line" :src="startLineIcon" alt="start-line-icon" />
@@ -17,7 +17,7 @@
         <div class="home-section-start-icons-info-wallet">
           <img :src="startWalletIcon" alt="start-wallet-icon" />
         </div>
-        <p>He creates his initial account to record his transactions.</p>
+        <p>{{ t('main.step 2') }}</p>
       </div>
 
       <img class="home-section-start-icons-line" :src="startLineIcon" alt="start-line-icon" />
@@ -26,7 +26,7 @@
         <div class="home-section-start-icons-info-paper">
           <img :src="startPaperIcon" alt="start-paper-icon" />
         </div>
-        <p>You can add transactions and track your account.</p>
+        <p>{{ t('main.step 3') }}</p>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
 
   <div class="slider-area">
     <div>
-      <h1>What the app does</h1>
+      <h1>{{ t('main.slider title') }}</h1>
     <div class="custom-nav">
       <button class="nav-btn custom-prev">
         <span>&lsaquo;</span>
@@ -68,44 +68,52 @@
 
   
   <section class="home-section-subscription">
-    <h1 class="home-section-subscription-title">Subscription Plans</h1>
-    <p class="home-section-subscription-text">Choose the best plan for your business.</p>
+    <h1 class="home-section-subscription-title">{{ t('main.plan title') }}</h1>
+    <p class="home-section-subscription-text">{{ t('main.plan description') }}</p>
 
     <div class="home-section-subscription-switch">
-      <p class="home-section-subscription-switch-name">Yearly</p>
+      <p class="home-section-subscription-switch-name">{{ t('main.yearly') }}</p>
       <label>
         <input type="checkbox" :checked="isMonthly" @change="handleToggle" />
         <span class="slider"></span>
       </label>
-      <p class="home-section-subscription-switch-name">Monthly</p>
+      <p class="home-section-subscription-switch-name">{{ t('main.monthly') }}</p>
     </div>
 
     <div class="home-section-subscription-cards">
       <div class="home-section-subscription-card left">
-        <h2>Basic plan</h2>
-        <h1>{{ isMonthly ? "$3/Month" : "$30/Year" }}</h1>
-        <p>Access to basic features</p>
-        <p>Monthly budget tracking</p>
-        <p>Cancel anytime</p>
+        <h2>{{ t('main.basic plan') }}</h2>
+        <h1>{{ isMonthly ? `$3/${t('main.monthly')}` : `$3/${t('main.yearly')}` }}</h1>
+        <p>{{ t('main.basic desc 1') }}</p>
+        <p>{{ t('main.basic desc 2') }}</p>
+        <p>{{ t('main.basic desc 3') }}</p>
         <base-button
           class="subscription-banner-section-card-btn"
           mode="btn-blue"
+          @click="handleNavigate(
+           isMonthly ? '$3' : '$30',
+           isMonthly ? 'Basic (Monthly)' : 'Basic( Yearly)'
+          )"
         >
-        Get Started
+        {{ t('main.get started') }}
         </base-button>
       </div>
 
       <div class="home-section-subscription-card right">
-        <h2>Premium plan</h2>
-        <h1>{{ isMonthly ? "$25/Month" : "$250/Year" }}</h1>
-        <p>Advanced analytics & insights</p>
-        <p>Team collaboration tools</p>
-        <p>Customizable budgeting tools</p>
+        <h2>{{ t('main.premium plan') }}</h2>
+        <h1>{{ isMonthly ? `$25/${t('main.monthly')}` : `$250/${t('main.monthly')}` }}</h1>
+        <p>{{ t('main.premium desc 1') }}</p>
+        <p>{{ t('main.premium desc 2') }}</p>
+        <p>{{ t('main.premium desc 3') }}</p>
         <base-button
           class="subscription-banner-section-card-btn"
           mode="btn-white"
+          @click="handleNavigate(
+           isMonthly ? '$25' : '$250',
+           isMonthly ? 'Premium (Monthly)' : 'Premium (Yearly)'
+        )"
         >
-        Get Started
+        {{ t('main.get started') }}
         </base-button>
       </div>
     </div>
@@ -114,7 +122,7 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import bannerImg from '@/assets/images/banner-img-home.png';
 import startActivityIcon from '@/assets/icons/start-activity-icon.svg'
 import startWalletIcon from '@/assets/icons/start-wallet-icon.svg'
@@ -130,19 +138,47 @@ import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 import { Navigation } from 'swiper/modules'
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/store/features/auth';
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n();
 
-const items = [
-    { id:1, icon: sliderActivityIcon, text: "Simple interface/app that makes it easy to control your cash flows" },
-    { id:2, icon: sliderWalletIcon, text: "Fast transaction entry - Add all transactions with one click" },
-    { id:3, icon: sliderPaperIcon, text: "Creating templates to simplify and speed up the entry of transactions" },
-    { id:4, icon: sliderCardIcon, text: "Ability to control expenses of different accounts from one source" },
-    { id:5, icon: sliderActivityIcon, text: "Simple interface that makes it easy to control your cash flows" },
-    { id:6, icon: sliderWalletIcon, text: "Fast transaction entry. Add all transactions with one click" },
-    { id:7, icon: sliderPaperIcon, text: "Creating templates to simplify and speed up the entry of transactions!" },
-    { id:8, icon: sliderCardIcon, text: "Ability to control expenses of different accounts from one source." },
-];
+const items = computed(() => [
+    { id:1, icon: sliderActivityIcon, text: t('main.slider description 1') },
+    { id:2, icon: sliderWalletIcon, text: t('main.slider description 2') },
+    { id:3, icon: sliderPaperIcon, text: t('main.slider description 3') },
+    { id:4, icon: sliderCardIcon, text: t('main.slider description 4') },
+    { id:5, icon: sliderActivityIcon, text: t('main.slider description 1') },
+    { id:6, icon: sliderWalletIcon, text: t('main.slider description 2') },
+    { id:7, icon: sliderPaperIcon, text: t('main.slider description 3') },
+    { id:8, icon: sliderCardIcon, text: t('main.slider description 4') },
+]);
 const isMonthly = ref(false);
+const router = useRouter();
+const authStore = useAuthStore();
+
+
+const handleNavigate = (amount: string, planType: string) => {
+  if (!authStore.loginSuccess) {
+    router.push({
+      path: '/login',
+      query: {
+        fromSubscription: 'true',
+        amount,
+        planType,
+      }
+    })
+  } else {
+    router.push({
+      path: '/payment',
+      query: {
+        amount,
+        planType,
+      }
+    })
+  }
+}
 
 const handleToggle = () => {
   isMonthly.value = !isMonthly.value;

@@ -99,10 +99,11 @@ const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
 
-const amount = ref(route.query.amount as string || '$0');
-const planType = ref(route.query.planType as string || 'Unknown');
-const numberAmount = parseFloat(amount.value.replace('$', ''));
-const totalAmount = ref(numberAmount);
+const fromSubscription = computed(() => route.query.fromSubscription === 'true');
+const amount = computed(() => (route.query.amount as string) || '$0');
+const planType = computed(() => (route.query.planType as string) || 'Unknown');
+const numberAmount = computed(() => parseFloat(amount.value.replace('$', '')));
+const totalAmount = ref(numberAmount.value);
 const discount = ref(0);
 const promoCode = ref('');
 const promocodeError = ref('');
@@ -124,12 +125,12 @@ const errors = reactive({
 
 function handlePromoCode() {
   if (promoCode.value.toLowerCase() === 'welcome20') {
-    discount.value = numberAmount * 0.2;
-    totalAmount.value = numberAmount - discount.value;
+    discount.value = numberAmount.value * 0.2;
+    totalAmount.value = numberAmount.value - discount.value;
     promocodeError.value = '';
   } else {
     discount.value = 0;
-    totalAmount.value = numberAmount;
+    totalAmount.value = numberAmount.value;
     promocodeError.value = 'Invalid promo code!';
   }
   promoCode.value = '';
