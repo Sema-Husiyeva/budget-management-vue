@@ -43,6 +43,7 @@ export const useAuthStore = defineStore('auth', () => {
   function logout() {
     user.value = null;
     loginSuccess.value = false;
+    isSignedUp.value = false;
     subscriptionPlan.value = null;
   }
 
