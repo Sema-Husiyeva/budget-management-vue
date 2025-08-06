@@ -56,7 +56,7 @@ describe('articleStore', () => {
             description: null,
             url: 'https://example.com/incomplete',
             urlToImage: null,
-            publishedAt: '2024-01-18T09:00:00Z'
+            publishedAt: '2025-01-18T09:00:00Z'
           }
         ]
       };
@@ -75,7 +75,7 @@ describe('articleStore', () => {
         description: null,
         url: 'https://example.com/incomplete',
         urlToImage: null,
-        publishedAt: '2024-01-18T09:00:00Z'
+        publishedAt: '2025-01-18T09:00:00Z'
       });
     });
 })
