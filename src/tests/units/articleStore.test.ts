@@ -70,7 +70,7 @@ describe('articleStore', () => {
       await store.fetchArticles();
 
       expect(store.articles[0]).toEqual({
-        id: 'incomplete-article-2024-01-18T09:00:00Z',
+        id: 'incomplete-article-2025-01-18T09:00:00Z',
         title: 'Incomplete Article',
         description: null,
         url: 'https://example.com/incomplete',

@@ -5,6 +5,7 @@ import store from './store'
 import BaseButton from './components/UI/BaseButton.vue';
 import TheBanner from './components/common/TheBanner.vue';
 import BaseDialog from './components/UI/BaseDialog.vue';
+import DefaultLayout from './components/layouts/DefaultLayout.vue';
 import i18n from "./i18n";
 import pinia from './store';
 
@@ -20,5 +21,6 @@ app.use(pinia);
 app.component('base-button', BaseButton);
 app.component('the-banner', TheBanner);
 app.component('base-dialog', BaseDialog);
+app.component('default-layout', DefaultLayout);
 
 app.mount('#app');

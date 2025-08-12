@@ -51,6 +51,7 @@
     bannerTitle="404 Error"
     bannerDescription="Page Not Found"
     :bannerImg="notFoundImg"
+    data-testid="banner"
   />
 </template>
 

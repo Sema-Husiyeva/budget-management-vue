@@ -41,7 +41,7 @@
 
       <div class="signup-section-form-input">
         <label for="email">Email</label>
-        <input v-model="email" type="text" :class="['signup-section-form-input-email', { error: errors.email }]" placeholder="Type your email" />
+        <input v-model="email" type="text" data-testid="email-input" :class="['signup-section-form-input-email', { error: errors.email }]" placeholder="Type your email" />
         <p v-if="errors.email" class="signup-section-form-input-error">{{ errors.email }}</p>
       </div>
 
@@ -52,6 +52,7 @@
         id="password"
         :type="showPassword ? 'text' : 'password'"
         placeholder="Type your password"
+        data-testid="password-input"
         v-model="password"
       />
       <img
@@ -75,6 +76,7 @@
         id="repeatePassword"
         :type="showPassword ? 'text' : 'password'"
         placeholder="Type your password"
+        data-testid="repeat-password-input"
         v-model="repeatePassword"
       />
       <img
@@ -96,7 +98,7 @@
                <base-button mode="btn-blue" class="login-section-form-dialog" to="/login" >Go to login page</base-button>
             </template>
     </base-dialog>
-      <base-button mode="btn-blue" @click="handleLogin">Signup</base-button>
+      <base-button mode="btn-blue" type="submit" data-testid="signup-button" @click="handleLogin">Signup</base-button>
 
       <div class='signup-section-form-signin'>
         <p>Do you have an account?</p>

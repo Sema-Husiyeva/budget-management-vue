@@ -41,7 +41,7 @@
 
       <div class="login-section-form-input">
         <label>Email</label>
-        <input v-model="email" type="text" :class="['login-section-form-input-email', { error: errors.email }]" placeholder="Type your email" />
+        <input v-model="email" type="text" data-testid="email-input" :class="['login-section-form-input-email', { error: errors.email }]" placeholder="Type your email" />
         <p v-if="errors.email" class="login-section-form-input-error">{{ errors.email }}</p>
       </div>
 
@@ -53,6 +53,7 @@
         id="password"
         :type="showPassword ? 'text' : 'password'"
         placeholder="Type your password"
+        data-testid="password-input"
         v-model="password"
       />
       <img
@@ -75,7 +76,7 @@
                <base-button mode="btn-blue" class="login-section-form-dialog" to="/" >Go to homepage</base-button>
             </template>
     </base-dialog>
-    <base-button mode="btn-blue" @click="handleLogin">Login</base-button>
+    <base-button mode="btn-blue" type="submit" data-testid="login-button" @click="handleLogin">Login</base-button>
 
       <div class='login-section-form-signin'>
         <p>Don't have an account?</p>

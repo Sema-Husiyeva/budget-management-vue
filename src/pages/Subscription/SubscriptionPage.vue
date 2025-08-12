@@ -26,6 +26,7 @@
            isMonthly ? '$3' : '$30',
            isMonthly ? 'Basic (Monthly)' : 'Basic (Yearly)'
          )"
+          data-testid="subs-button"
         >
         Get Started
         </base-button>
@@ -44,6 +45,7 @@
            isMonthly ? '$25' : '$250',
            isMonthly ? 'Premium (Monthly)' : 'Premium (Yearly)'
           )"
+          data-testid="subs-button"
         >
         Get Started
         </base-button>

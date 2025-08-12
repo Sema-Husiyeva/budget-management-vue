@@ -23,6 +23,7 @@
       v-if="!authStore.loginSuccess"
       to="/login"
       mode="btn-blue"
+      data-testid="header-login-button"
     >
     {{ t("navbar.login") }}
     </base-button>
@@ -30,6 +31,7 @@
       <base-button
         @click="toggleMenu"
         mode="btn-white"
+        data-testid="account-dropdown-button"
       >
         {{ t("navbar.my account") }}
       </base-button>
@@ -44,7 +46,7 @@
           }}
         </p>
         <base-button to="/subscription" mode="btn-white">Change Plan</base-button>
-        <base-button @click="authStore.logout()" mode="btn-blue">Logout</base-button>
+        <base-button data-testid="header-logout-button" @click="authStore.logout()" mode="btn-blue">Logout</base-button>
        </div>
       </div>
     </div>

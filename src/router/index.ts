@@ -18,7 +18,7 @@ import TermsPage from '@/pages/Terms/TermsPage.vue';
 import ContactPage from '@/pages/Contact/ContactPage.vue';
 
 
-const routes = [
+export const routes = [
   {
     path: '/',
     component: DefaultLayout,
@@ -42,13 +42,15 @@ const routes = [
     ],
   },
   {
-    path: '/',
-    component: AuthLayout,
-    children: [
-      { path: 'login', component: LoginPage },
-      { path: 'signup', component: SignupPage },
-    ],
-  },
+  path: '/login',
+  component: AuthLayout,
+  children: [{ path: '', component: LoginPage }],
+},
+{
+  path: '/signup',
+  component: AuthLayout,
+  children: [{ path: '', component: SignupPage }],
+},
 ];
 
 const router = createRouter({
